@@ -4,12 +4,14 @@ plugins {
     kotlin("android")
 }
 
+// Данные для findProperty находятся в gradle.properties
 android {
-    compileSdk = 33
+    compileSdk = findProperty("compileSdk").toString().toInt()
+
     defaultConfig {
         applicationId = "com.example.playzone_mobile.android"
-        minSdk = 23
-        targetSdk = 32
+        minSdk = findProperty("minSdk").toString().toInt()
+        targetSdk = findProperty("targetSdk").toString().toInt()
         versionCode = 1
         versionName = "1.0"
     }
@@ -19,11 +21,11 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+        kotlinCompilerExtensionVersion = findProperty("kotlinCompilerExtensionVersion").toString()
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
     }
 
     buildTypes {

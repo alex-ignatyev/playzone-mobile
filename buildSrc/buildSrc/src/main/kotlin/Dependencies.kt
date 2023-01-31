@@ -1,13 +1,11 @@
 object Dependencies {
 
     object Gradle {
-        private const val version = "7.2.1"
-        const val gradlePlugin = "com.android.tools.build:gradle:$version"
+        const val gradlePlugin = "com.android.tools.build:gradle:7.2.1"
     }
 
     object Kotlin {
-        private const val version = "1.7.20"
-        const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
+        const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20"
 
         object Serialization {
             const val gradlePlugin = "org.jetbrains.kotlin:kotlin-serialization:1.6.21"
@@ -24,6 +22,10 @@ object Dependencies {
         const val core = "org.kodein.di:kodein-di:7.1.0"
     }
 
+    object Koin {
+
+    }
+
     object Settings {
         const val core = "com.russhwolf:multiplatform-settings:1.0.0-RC"
         const val noargs = "com.russhwolf:multiplatform-settings-no-arg:1.0.0-RC"
@@ -31,6 +33,7 @@ object Dependencies {
 
     object Ktor {
         private const val version = "2.1.0"
+
         const val core = "io.ktor:ktor-client-core:$version"
         const val json = "io.ktor:ktor-client-json:$version"
         const val ios = "io.ktor:ktor-client-ios:$version"
@@ -55,28 +58,27 @@ object Dependencies {
     object Image {
         object Coil {
             const val version = "2.2.2"
-            const val core = "io.coil-kt:coil:2.2.2"
-            const val compose = "io.coil-kt:coil-compose:2.2.2"
+            const val core = "io.coil-kt:coil:$version"
+            const val compose = "io.coil-kt:coil-compose:$version"
         }
     }
 
     object Android {
         const val gradlePlugin = "com.android.tools.build:gradle:7.3.0"
-        const val composeActivity = "androidx.activity:activity-compose:1.5.1"
 
         object Compose {
             private const val version = "1.3.0"
             const val gradlePlugin = "org.jetbrains.compose:compose-gradle-plugin:$version"
             const val ui = "androidx.compose.ui:ui:$version"
-            const val activity = "androidx.activity:activity-compose:$version"
+            const val foundation = "androidx.compose.foundation:foundation:$version"
             const val tooling = "androidx.compose.ui:ui-tooling:$version"
             const val material = "androidx.compose.material:material:$version"
             const val icons = "androidx.compose.material:material-icons-extended:$version"
-            const val foundation = "androidx.compose.foundation:foundation:$version"
+            const val activity = "androidx.activity:activity-compose:1.5.1"
         }
     }
 
-    object Other {
+    object AlexGladkov {
         object ViewModel {
             private const val version = "0.7.1"
             const val core = "com.adeo:kviewmodel:$version"

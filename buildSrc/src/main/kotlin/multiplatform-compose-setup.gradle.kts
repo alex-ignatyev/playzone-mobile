@@ -5,7 +5,6 @@ plugins {
 }
 
 kotlin {
-    jvm("desktop")
     android()
 
     sourceSets {
@@ -14,12 +13,6 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)
-            }
-        }
-
-        named("desktopMain") {
-            dependencies {
-                implementation(compose.desktop.common)
             }
         }
 

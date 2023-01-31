@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = findProperty("compileSdk").toString().toInt()
 
     defaultConfig {
-        minSdk = 21
-        targetSdk = 33
+        minSdk = findProperty("minSdk").toString().toInt()
+        targetSdk = findProperty("targetSdk").toString().toInt()
     }
 
     buildFeatures {
@@ -15,7 +15,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0"
+        kotlinCompilerExtensionVersion = findProperty("kotlinCompilerExtensionVersion").toString()
     }
 
     compileOptions {

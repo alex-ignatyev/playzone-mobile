@@ -11,14 +11,14 @@ kotlin {
                 //implementation(Dependencies.Other.ViewModel.compose)
                 //implementation(Dependencies.Other.ViewModel.odyssey)
 
-                implementation(Dependencies.Other.Navigation.compose)
-                implementation(Dependencies.Other.Navigation.core)
+                //implementation(Dependencies.Other.Navigation.compose)
+                //implementation(Dependencies.Other.Navigation.core)
             }
         }
 
         androidMain {
             dependencies {
-                implementation(Dependencies.Android.composeActivity)
+                implementation(Dependencies.Android.Compose.activity)
             }
         }
     }
