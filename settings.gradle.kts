@@ -14,5 +14,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "playzone-mobile"
+
 include(":androidApp")
-include(":shared")
+
+include(":shared:core")
+include(":shared:core-ios")
+include(":shared:core-android")
