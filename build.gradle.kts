@@ -37,7 +37,7 @@ buildscript {
     dependencies {
         classpath(Dependencies.Kotlin.gradlePlugin)
         classpath(Dependencies.Gradle.gradlePlugin)
-        classpath("com.codingfeline.buildkonfig:buildkonfig-gradle-plugin:0.13.3") // https://github.com/yshrsmz/BuildKonfig
+        classpath("com.codingfeline.buildkonfig:buildkonfig-gradle-plugin:0.13.3") // https://github.com/yshrsmz/BuildKonfig //FIXME перенести в Dependencies
     }
 }
 

@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "playzone-mobile"
+rootProject.name = "test"
 
 include(":androidApp")
 

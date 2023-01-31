@@ -1,4 +1,4 @@
-package com.example.playzone_mobile.android
+package com.sideki.test.android
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

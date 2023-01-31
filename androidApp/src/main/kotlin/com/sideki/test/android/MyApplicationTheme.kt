@@ -1,4 +1,4 @@
-package com.example.playzone_mobile.android
+package com.sideki.test.android
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape

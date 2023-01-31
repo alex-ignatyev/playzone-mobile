@@ -9,7 +9,7 @@ android {
     compileSdk = findProperty("compileSdk").toString().toInt()
 
     defaultConfig {
-        applicationId = "com.example.playzone_mobile.android"
+        applicationId = "com.sideki.test.android"
         minSdk = findProperty("minSdk").toString().toInt()
         targetSdk = findProperty("targetSdk").toString().toInt()
         versionCode = 1
@@ -42,7 +42,4 @@ dependencies {
     implementation(Dependencies.Android.Compose.material)
     implementation(Dependencies.Android.Compose.icons)
     implementation(Dependencies.Android.Compose.tooling)
-
-    implementation("com.google.android.material:material:1.6.1")
-    implementation("androidx.appcompat:appcompat:1.5.0")
 }
