@@ -36,6 +36,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared:core"))
+    implementation(project(":shared:core-android"))
+    implementation(project(":shared:games:api"))
+
     implementation(Dependencies.Android.Compose.foundation)
     implementation(Dependencies.Android.Compose.ui)
     implementation(Dependencies.Android.Compose.activity)

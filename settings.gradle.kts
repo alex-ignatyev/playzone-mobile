@@ -20,3 +20,8 @@ include(":androidApp")
 include(":shared:core")
 include(":shared:core-ios")
 include(":shared:core-android")
+
+include(":shared:games:api")
+include(":shared:games:data")
+include(":shared:games:presentation")
+include(":shared:games:compose")

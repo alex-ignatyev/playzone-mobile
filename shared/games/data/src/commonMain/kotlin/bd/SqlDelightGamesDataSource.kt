@@ -1,0 +1,5 @@
+package bd
+
+class SqlDelightGamesDataSource() {
+
+}

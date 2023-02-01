@@ -1,6 +1,7 @@
 package ktor
 
 import io.ktor.client.HttpClient
+import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
@@ -8,6 +9,7 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.logging.SIMPLE
+import io.ktor.client.request.header
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.kodein.di.DI
@@ -22,10 +24,13 @@ internal val ktoreModule = DI.Module("ktorModule") {
                 level = LogLevel.ALL
             }
 
+            install(DefaultRequest)
+
             install(ContentNegotiation) {
                 json(Json {
                     isLenient = true
                     ignoreUnknownKeys = true
+                    prettyPrint = true
                 })
             }
 
@@ -35,7 +40,8 @@ internal val ktoreModule = DI.Module("ktorModule") {
             }
 
             defaultRequest {
-                url("http://0.0.0.0:8080/") //FIXME Может быть лишний слеш
+                header("Content-Type", "application/json; charset=UTF-8")
+                url("https://10.0.2.2:8080")
             }
         }
     }

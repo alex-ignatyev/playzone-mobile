@@ -7,6 +7,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                implementation(project(":shared:core"))
+                implementation(project(":shared:games:data"))
+
                 //implementation(Dependencies.Other.ViewModel.core)
                 //implementation(Dependencies.Other.ViewModel.compose)
                 //implementation(Dependencies.Other.ViewModel.odyssey)
