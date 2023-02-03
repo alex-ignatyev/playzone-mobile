@@ -9,7 +9,7 @@ class GamesRepositoryImpl(
 ) : GamesRepository {
 
     override suspend fun fetchAllGames(): List<Game> {
-        return remoteDataSource.fetchAllGames().map { it.mapToGame() }
+        return listOf(remoteDataSource.fetchAllGames().mapToGame() )
     }
 
     override suspend fun searchGame(query: String): Game {

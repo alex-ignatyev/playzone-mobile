@@ -16,6 +16,7 @@ import org.kodein.di.DI
 import org.kodein.di.bind
 import org.kodein.di.singleton
 
+//FIXME настроить ktor client
 internal val ktoreModule = DI.Module("ktorModule") {
     bind<HttpClient>() with singleton {
         HttpClient(HttpEngineFactory().createEngine()) {
@@ -24,13 +25,13 @@ internal val ktoreModule = DI.Module("ktorModule") {
                 level = LogLevel.ALL
             }
 
-            install(DefaultRequest)
+            //install(DefaultRequest) //FIXME Зачем ?
 
             install(ContentNegotiation) {
                 json(Json {
                     isLenient = true
                     ignoreUnknownKeys = true
-                    prettyPrint = true
+                    //prettyPrint = true
                 })
             }
 
@@ -40,8 +41,8 @@ internal val ktoreModule = DI.Module("ktorModule") {
             }
 
             defaultRequest {
-                header("Content-Type", "application/json; charset=UTF-8")
-                url("https://10.0.2.2:8080")
+                //header("Content-Type", "application/json; charset=UTF-8") //FIXME Зачем ?
+                url("http://10.0.2.2:8100")
             }
         }
     }

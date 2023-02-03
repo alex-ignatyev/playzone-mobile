@@ -4,19 +4,15 @@ import GamesRepository
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import di.Inject.instance
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import navigation.setupThemedNavigation
 
+@ExperimentalMaterialApi
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,29 +21,8 @@ class MainActivity : ComponentActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             Log.d("TAG", gamesRepo.fetchAllGames().first().title)
         }
-
-        setContent {
-            MyApplicationTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    GreetingView("Hello, Android!")
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun GreetingView(text: String) {
-    Text(text = text)
-}
-
-@Preview
-@Composable
-fun DefaultPreview() {
-    MyApplicationTheme {
-        GreetingView("Hello, Android!")
+        // installSplashScreen() разобраться что это такое
+        // Убрать серый сплеш через новое сплеш АПИ
+        setupThemedNavigation()
     }
 }
