@@ -17,5 +17,5 @@ fun SplashScreen() {
 
     }
 
-    rootController.present(NavigationThree.Games.AuthFlow.name)
+    rootController.present(NavigationThree.Auth.AuthFlow.name)
 }

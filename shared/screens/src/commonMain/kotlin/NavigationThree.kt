@@ -5,7 +5,7 @@ object NavigationThree {
         SplashScreen;
     }
 
-    enum class Games {
+    enum class Auth {
         AuthFlow, Login, Register, Forgot;
     }
 }
