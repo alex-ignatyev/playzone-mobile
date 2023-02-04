@@ -66,6 +66,8 @@ object Dependencies {
     object Android {
         const val gradlePlugin = "com.android.tools.build:gradle:7.3.0"
 
+        const val splash = "androidx.core:core-splashscreen:1.0.0"
+
         object Compose {
             private const val version = "1.3.0"
             const val gradlePlugin = "org.jetbrains.compose:compose-gradle-plugin:$version"

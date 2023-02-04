@@ -40,14 +40,6 @@ dependencies {
     implementation(project(":shared:core-android"))
     implementation(project(":shared:games:api"))
 
-    implementation("androidx.core:core-splashscreen:1.0.0")
-
     implementation(Dependencies.Android.Compose.activity)
-
-    /*implementation(Dependencies.Android.Compose.foundation)
-    implementation(Dependencies.Android.Compose.ui)
-
-    implementation(Dependencies.Android.Compose.material)
-    implementation(Dependencies.Android.Compose.icons)
-    implementation(Dependencies.Android.Compose.tooling)*/
+    implementation(Dependencies.Android.splash)
 }

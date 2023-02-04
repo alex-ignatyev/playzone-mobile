@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val splash = installSplashScreen()
         super.onCreate(savedInstanceState)
-        splash.setKeepOnScreenCondition { testSplashWorks() } // Splash will be hide after all works done, and return false
+        splash.setKeepOnScreenCondition { testSplashWorks() } // Сплеш скроет после того как вся работа будет выполнена и вернется false
         setupThemedNavigation()
     }
 }
