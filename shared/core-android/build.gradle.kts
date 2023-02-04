@@ -13,10 +13,10 @@ kotlin {
                 implementation(project(":shared:theme"))
 
                 // Модули собираются в DI дерево - AndroidPlatformSDK
-                implementation(project(":shared:games:data"))
+                implementation(project(":shared:auth:data"))
 
                 // Модули собирается в NavGraph дерево - generateGraph()
-                implementation(project(":shared:games:compose"))
+                implementation(project(":shared:auth:compose"))
 
                 // Для экстеншена ComponentActivity.setupThemedNavigation()
                 implementation(Dependencies.Android.Compose.activity)

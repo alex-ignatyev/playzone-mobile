@@ -1,11 +1,10 @@
 package com.sideki.test.android
 
-import GamesRepository
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import di.Inject.instance
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import navigation.setupThemedNavigation
 
@@ -22,8 +21,7 @@ class MainActivity : ComponentActivity() {
 fun testSplashWorks(): Boolean {
     return runBlocking {
         Log.d("TAG", "Start")
-        val gamesRepo = instance<GamesRepository>()
-        Log.d("TAG", gamesRepo.fetchAllGames().first().title)
+        delay(2000)
         Log.d("TAG", "End")
         false
     }

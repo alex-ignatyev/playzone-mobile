@@ -38,7 +38,7 @@ android {
 dependencies {
     implementation(project(":shared:core"))
     implementation(project(":shared:core-android"))
-    implementation(project(":shared:games:api"))
+    implementation(project(":shared:auth:api"))
 
     implementation(Dependencies.Android.Compose.activity)
     implementation(Dependencies.Android.splash)

@@ -21,7 +21,7 @@ object AndroidPlatformSDK {
             DI {
                 importAll(
                     coreModule,
-                    gamesModule,
+                    authModule,
                     platformModule
                 )
             }.direct
