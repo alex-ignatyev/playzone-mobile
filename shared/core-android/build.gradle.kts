@@ -1,31 +1,32 @@
 plugins {
-    id("multiplatform-compose-setup")
-    id("android-setup")
+    id("multiplatform-compose-setup") //FIXME Разобраться
+    id("android-setup") //FIXME Разобраться
 }
 
 kotlin {
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(project(":shared:core"))
-                implementation(project(":shared:screens"))
-
-                implementation(project(":shared:games:data"))
-                implementation(project(":shared:games:compose"))
-
-                implementation(Dependencies.AlexGladkov.ViewModel.core)
-                implementation(Dependencies.AlexGladkov.ViewModel.compose)
-                implementation(Dependencies.AlexGladkov.ViewModel.odyssey)
-
-                implementation(Dependencies.AlexGladkov.Navigation.compose)
-                implementation(Dependencies.AlexGladkov.Navigation.core)
-            }
-        }
-
         androidMain {
             dependencies {
+                //FIXME Дописать описание имрортов
+                implementation(project(":shared:core"))
+                implementation(project(":shared:screens"))
                 implementation(project(":shared:theme"))
+
+                // Модули собираются в DI дерево - AndroidPlatformSDK
+                implementation(project(":shared:games:data"))
+
+                // Модули собирается в NavGraph дерево - generateGraph()
+                implementation(project(":shared:games:compose"))
+
+                // Для экстеншена ComponentActivity.setupThemedNavigation()
                 implementation(Dependencies.Android.Compose.activity)
+
+                // В модуле описывается граф навигации в приложении c испольованием библиотеки Odyssey
+                implementation(Dependencies.AlexGladkov.Navigation.compose)
+                implementation(Dependencies.AlexGladkov.Navigation.core)
+
+                // Экстеншн setupWithViewModels() для интеграции Odyssey + KViewModel
+                implementation(Dependencies.AlexGladkov.ViewModel.odyssey)
             }
         }
     }

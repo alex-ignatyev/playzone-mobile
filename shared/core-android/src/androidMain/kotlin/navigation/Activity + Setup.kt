@@ -1,7 +1,6 @@
 package navigation
 
 import AppTheme
-import NavigationThree
 import Theme
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -25,7 +24,7 @@ fun ComponentActivity.setupThemedNavigation() {
 
             CompositionLocalProvider(LocalRootController provides rootController) {
                 ModalNavigator {
-                    Navigator(startScreen = NavigationThree.Splash.SplashScreen.name)
+                    Navigator(startScreen = NavigationThree.Auth.Login.name)
                 }
             }
         }

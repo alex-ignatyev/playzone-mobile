@@ -1,8 +1,7 @@
 package com.sideki.test.android
 
-import PlatformSDK
 import android.app.Application
-import platform.PlatformConfiguration
+import com.sideki.test.android.utils.initPlatformSDK
 
 class App : Application() {
 
@@ -11,8 +10,3 @@ class App : Application() {
         initPlatformSDK()
     }
 }
-
-fun App.initPlatformSDK() =
-    PlatformSDK.init(
-        configuration = PlatformConfiguration(androidContext = applicationContext)
-    )

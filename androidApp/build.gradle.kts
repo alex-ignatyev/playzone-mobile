@@ -4,7 +4,7 @@ plugins {
     kotlin("android")
 }
 
-// Данные для findProperty находятся в gradle.properties
+// Данные для findProperty находятся в gradle.properties, лучше заменить на object
 android {
     compileSdk = findProperty("compileSdk").toString().toInt()
 
@@ -42,10 +42,12 @@ dependencies {
 
     implementation("androidx.core:core-splashscreen:1.0.0")
 
-    implementation(Dependencies.Android.Compose.foundation)
-    implementation(Dependencies.Android.Compose.ui)
     implementation(Dependencies.Android.Compose.activity)
+
+    /*implementation(Dependencies.Android.Compose.foundation)
+    implementation(Dependencies.Android.Compose.ui)
+
     implementation(Dependencies.Android.Compose.material)
     implementation(Dependencies.Android.Compose.icons)
-    implementation(Dependencies.Android.Compose.tooling)
+    implementation(Dependencies.Android.Compose.tooling)*/
 }
