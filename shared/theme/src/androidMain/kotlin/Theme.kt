@@ -10,7 +10,7 @@ fun AppTheme(content: @Composable () -> Unit) {
 }
 
 object Theme {
-    val colors: PlayzoneColors
+    val colors: AppColors
         @Composable
         get() = LocalColorProvider.current
 }

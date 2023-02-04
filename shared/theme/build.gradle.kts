@@ -1,12 +1,4 @@
 plugins {
-    id("multiplatform-compose-setup")
+    id("module-setup")
     id("android-setup")
-}
-
-kotlin {
-    sourceSets {
-        dependencies {
-
-        }
-    }
 }

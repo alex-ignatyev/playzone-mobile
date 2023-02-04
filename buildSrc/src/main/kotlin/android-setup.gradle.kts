@@ -1,32 +1,24 @@
 plugins {
     id("com.android.library")
+    id("org.jetbrains.compose")
+    kotlin("multiplatform")
 }
 
-android {
-    compileSdk = findProperty("compileSdk").toString().toInt()
-
-    defaultConfig {
-        minSdk = findProperty("minSdk").toString().toInt()
-        targetSdk = findProperty("targetSdk").toString().toInt()
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = findProperty("kotlinCompilerExtensionVersion").toString()
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
+kotlin {
+    android()
 
     sourceSets {
-        named("main") {
-            manifest.srcFile("src/androidMain/AndroidManifest.xml")
-            res.srcDirs("src/androidMain/res", "src/commonMain/resources")
+        named("androidMain") {
+            dependencies {
+                implementation(Dependencies.Android.Compose.ui)
+                implementation(Dependencies.Android.Compose.material)
+                implementation(Dependencies.Android.Compose.tooling)
+                implementation(Dependencies.Android.Compose.icons)
+            }
         }
+    }
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.jvmTarget = "11"
     }
 }

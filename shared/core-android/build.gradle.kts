@@ -1,6 +1,6 @@
 plugins {
-    id("multiplatform-compose-setup") //FIXME Разобраться
-    id("android-setup") //FIXME Разобраться
+    id("module-setup")
+    id("android-setup")
 }
 
 kotlin {

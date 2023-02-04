@@ -1,6 +1,6 @@
 plugins {
+    id("module-setup")
     id("multiplatform-setup")
-    id("android-setup")
     //kotlin("plugin.serialization") //FIXME Проверить нужен ли
 }
 

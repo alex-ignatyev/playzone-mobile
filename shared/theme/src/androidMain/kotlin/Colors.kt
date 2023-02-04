@@ -1,7 +1,7 @@
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
-data class PlayzoneColors(
+data class AppColors(
     val primaryBackground: Color,
     val primaryAction: Color,
     val primaryTextColor: Color,
@@ -13,7 +13,7 @@ data class PlayzoneColors(
     val tagTextColor: Color
 )
 
-val palette = PlayzoneColors(
+val palette = AppColors(
     primaryBackground = Color(0xFF050B18),
     primaryAction = Color(0xFFF4D144),
     primaryTextColor = Color(0xFF050B18),
@@ -25,4 +25,4 @@ val palette = PlayzoneColors(
     tagTextColor = Color(0xFF44A9F4)
 )
 
-val LocalColorProvider = staticCompositionLocalOf<PlayzoneColors> { error("No default implementation") }
+val LocalColorProvider = staticCompositionLocalOf<AppColors> { error("No default implementation") }
