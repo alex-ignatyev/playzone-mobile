@@ -25,7 +25,7 @@ internal val ktoreModule = DI.Module("ktorModule") {
                 level = LogLevel.ALL
             }
 
-            //install(DefaultRequest) //FIXME Зачем ?
+            install(DefaultRequest) //FIXME Зачем ?
 
             install(ContentNegotiation) {
                 json(Json {
@@ -41,7 +41,7 @@ internal val ktoreModule = DI.Module("ktorModule") {
             }
 
             defaultRequest {
-                //header("Content-Type", "application/json; charset=UTF-8") //FIXME Зачем ?
+                header("Content-Type", "application/json; charset=UTF-8")
                 url("http://10.0.2.2:8100")
             }
         }

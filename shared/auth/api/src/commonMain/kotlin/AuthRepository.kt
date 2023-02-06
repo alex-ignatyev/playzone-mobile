@@ -1,5 +1,5 @@
 interface AuthRepository {
-    suspend fun logIn()
+    suspend fun logIn(login: String, password: String): String
     suspend fun forgotPassword()
     suspend fun signIn()
 }

@@ -1,7 +1,10 @@
 package login
 
 import Theme
+import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.clickable
+//import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -17,12 +20,15 @@ import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Lock
+import androidx.compose.material.icons.outlined.LockOpen
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -40,7 +46,7 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
 
         Text(
             modifier = Modifier.padding(top = 15.dp),
-            text = "Welcome back to PlayZone! Enter your email address and your password to enjoy the latest features of PlayZone",
+            text = "Welcome back! Enter your email address and password to enjoy the latest features",
             fontSize = 14.sp,
             textAlign = TextAlign.Center,
             color = Theme.colors.hintTextColor
@@ -55,8 +61,8 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
             value = state.email,
             enabled = !state.isSending,
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color(0xFF1F2430),
-                textColor = Color(0xFF696C75),
+                backgroundColor = Theme.colors.backgroundTextField,
+                textColor = Theme.colors.hintTextColor,
                 cursorColor = Theme.colors.highlightTextColor,
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent
@@ -76,30 +82,31 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
             value = state.password,
             enabled = !state.isSending,
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = Color(0xFF1F2430),
-                textColor = Color(0xFF696C75),
+                backgroundColor = Theme.colors.backgroundTextField,
+                textColor = Theme.colors.hintTextColor,
                 cursorColor = Theme.colors.highlightTextColor,
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent
             ),
-            visualTransformation = PasswordVisualTransformation() /*if (state.passwordHidden) {
+            visualTransformation = if (state.passwordHidden) {
                 PasswordVisualTransformation()
             } else {
                 VisualTransformation.None
-            }*/,
-            placeholder = {
-                Text("Your password", color = Theme.colors.hintTextColor)
             },
+            placeholder = { Text("Your password", color = Theme.colors.hintTextColor) },
             trailingIcon = {
                 Icon(
-                    modifier = Modifier.clickable {
-                        //eventHandler.invoke(LoginEvent.PasswordShowClick)
+                    modifier = Modifier.clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = null
+                    ) {
+                        eventHandler.invoke(LoginEvent.PasswordShowClick)
                     },
-                    imageVector = Icons.Outlined.Lock /*if (state.passwordHidden) {
-                        Icons.Outlined.Clear
-                    } else {
+                    imageVector = if (state.passwordHidden) {
                         Icons.Outlined.Lock
-                    }*/,
+                    } else {
+                        Icons.Outlined.LockOpen
+                    },
                     contentDescription = "Password hidden",
                     tint = Theme.colors.hintTextColor
                 )
