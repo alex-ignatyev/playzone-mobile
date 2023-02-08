@@ -12,6 +12,13 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		E39E9D282297DE018E0BF7DF /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EC7797FDE812084569D3FE /* Pods_iosApp.framework */; };
+		FA454CB92993CA7700CD589F /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA454CB82993CA7700CD589F /* ActionButton.swift */; };
+		FA454CBB2993CF0100CD589F /* Flow + Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA454CBA2993CF0100CD589F /* Flow + Publisher.swift */; };
+		FA454CBD2993D15900CD589F /* ViewModel + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA454CBC2993D15900CD589F /* ViewModel + View.swift */; };
+		FA454CBF2993E12C00CD589F /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA454CBE2993E12C00CD589F /* LoginScreen.swift */; };
+		FA454CC72993F15700CD589F /* ForgotScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA454CC62993F15700CD589F /* ForgotScreen.swift */; };
+		FA454CC92993F21200CD589F /* RegistrationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA454CC82993F21200CD589F /* RegistrationScreen.swift */; };
+		FA454CCB2993F24000CD589F /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA454CCA2993F24000CD589F /* MainScreen.swift */; };
 		FA6D1D4D2993087C003A1377 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D4C2993087C003A1377 /* LoginView.swift */; };
 		FA6D1D5029930C80003A1377 /* Color + Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D4F29930C80003A1377 /* Color + Customs.swift */; };
 		FA6D1D5329930FE9003A1377 /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D5229930FE9003A1377 /* CommonTextField.swift */; };
@@ -27,6 +34,13 @@
 		7DD6BBB6217CFF3870E2A950 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		D8EC7797FDE812084569D3FE /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07EC2BA9CB9F951EA7042BD /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FA454CB82993CA7700CD589F /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		FA454CBA2993CF0100CD589F /* Flow + Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flow + Publisher.swift"; sourceTree = "<group>"; };
+		FA454CBC2993D15900CD589F /* ViewModel + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel + View.swift"; sourceTree = "<group>"; };
+		FA454CBE2993E12C00CD589F /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		FA454CC62993F15700CD589F /* ForgotScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotScreen.swift; sourceTree = "<group>"; };
+		FA454CC82993F21200CD589F /* RegistrationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationScreen.swift; sourceTree = "<group>"; };
+		FA454CCA2993F24000CD589F /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		FA6D1D4C2993087C003A1377 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FA6D1D4F29930C80003A1377 /* Color + Customs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Customs.swift"; sourceTree = "<group>"; };
 		FA6D1D5229930FE9003A1377 /* CommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
@@ -102,10 +116,62 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		FA6D1D4B2993084F003A1377 /* Screens */ = {
+		FA454CC02993F0F900CD589F /* General */ = {
+			isa = PBXGroup;
+			children = (
+				FA454CC52993F12700CD589F /* Main */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		FA454CC12993F10400CD589F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				FA454CC42993F11D00CD589F /* Registration */,
+				FA454CC32993F11600CD589F /* Forgot */,
+				FA454CC22993F10E00CD589F /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		FA454CC22993F10E00CD589F /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				FA6D1D4C2993087C003A1377 /* LoginView.swift */,
+				FA454CBE2993E12C00CD589F /* LoginScreen.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FA454CC32993F11600CD589F /* Forgot */ = {
+			isa = PBXGroup;
+			children = (
+				FA454CC62993F15700CD589F /* ForgotScreen.swift */,
+			);
+			path = Forgot;
+			sourceTree = "<group>";
+		};
+		FA454CC42993F11D00CD589F /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				FA454CC82993F21200CD589F /* RegistrationScreen.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		FA454CC52993F12700CD589F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FA454CCA2993F24000CD589F /* MainScreen.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		FA6D1D4B2993084F003A1377 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FA454CC12993F10400CD589F /* Auth */,
+				FA454CC02993F0F900CD589F /* General */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -114,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				FA6D1D4F29930C80003A1377 /* Color + Customs.swift */,
+				FA454CBA2993CF0100CD589F /* Flow + Publisher.swift */,
+				FA454CBC2993D15900CD589F /* ViewModel + View.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -122,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6D1D5229930FE9003A1377 /* CommonTextField.swift */,
+				FA454CB82993CA7700CD589F /* ActionButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,11 +291,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA454CCB2993F24000CD589F /* MainScreen.swift in Sources */,
 				FA6D1D5029930C80003A1377 /* Color + Customs.swift in Sources */,
 				FA6D1D4D2993087C003A1377 /* LoginView.swift in Sources */,
+				FA454CBF2993E12C00CD589F /* LoginScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				FA454CC72993F15700CD589F /* ForgotScreen.swift in Sources */,
+				FA454CBD2993D15900CD589F /* ViewModel + View.swift in Sources */,
+				FA454CC92993F21200CD589F /* RegistrationScreen.swift in Sources */,
+				FA454CBB2993CF0100CD589F /* Flow + Publisher.swift in Sources */,
 				FA6D1D5329930FE9003A1377 /* CommonTextField.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				FA454CB92993CA7700CD589F /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +434,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,7 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -386,6 +463,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -401,7 +479,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -70,7 +70,7 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent
             ),
-            placeholder = { Text("Your login", color = Theme.colors.hintTextColor) },
+            placeholder = { Text("Login", color = Theme.colors.hintTextColor) },
             shape = RoundedCornerShape(10.dp),
             onValueChange = {
                 eventHandler.invoke(LoginEvent.LoginChanged(it))
@@ -96,7 +96,7 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
             } else {
                 VisualTransformation.None
             },
-            placeholder = { Text("Your password", color = Theme.colors.hintTextColor) },
+            placeholder = { Text("Password", color = Theme.colors.hintTextColor) },
             trailingIcon = {
                 Icon(
                     modifier = Modifier.clickable(
@@ -169,6 +169,7 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
             Text(
                 text = "Create one",
                 color = Theme.colors.highlightTextColor,
+                fontWeight = FontWeight.Bold,
                 modifier = Modifier.clickable {
                     eventHandler.invoke(LoginEvent.RegistrationClick)
                 }

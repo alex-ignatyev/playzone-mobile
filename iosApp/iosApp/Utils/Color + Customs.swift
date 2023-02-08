@@ -11,7 +11,7 @@ import SwiftUI
 
 extension Color {
     
-    static let textPrimary = Color("textPrimary")
+    static let primaryTextColor = Color("primaryTextColor")
     static let secondaryBackground = Color("secondaryBackground")
     static let secondaryTextColor = Color("secondaryTextColor")
     static let tintColor = Color("tintColor")

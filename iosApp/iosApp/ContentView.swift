@@ -4,8 +4,10 @@ import SharedSDK
 struct ContentView: View {
 
 	var body: some View {
-        LoginView()
+        LoginScreen()
+            .preferredColorScheme(.dark)
             .background(Color.primaryBackground)
+            .background(ignoresSafeAreaEdges: [.top, .bottom])
 	}
 }
 

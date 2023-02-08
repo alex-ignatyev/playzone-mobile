@@ -31,14 +31,14 @@ struct CommonTextField: View {
             
             if (value.isEmpty) {
                 Text(hint)
-                    .foregroundColor(Color.textPrimary.opacity(0.5))
+                    .foregroundColor(.primaryTextColor.opacity(0.5))
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     .font(.system(size: 16))
             }
             
             if isSecure {
                 SecureField("", text: $value)
-                    .foregroundColor(.textPrimary)
+                    .foregroundColor(.primaryTextColor)
                     .font(.system(size: 16))
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
@@ -49,7 +49,7 @@ struct CommonTextField: View {
                     }
             } else {
                 TextField("", text: $value)
-                    .foregroundColor(.textPrimary)
+                    .foregroundColor(.primaryTextColor)
                     .font(.system(size: 16))
                     .autocapitalization(.none)
                     .disabled(!enabled)
@@ -62,13 +62,5 @@ struct CommonTextField: View {
         }
         .frame(height: 56)
         .padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
-    }
-}
-
-struct CommonTextField_Previews: PreviewProvider {
-    static var previews: some View {
-        CommonTextField(hint: "Your Email", enabled: true, isSecure: true, onValueChanged: { newValue in
-            print(newValue)
-        })
     }
 }
