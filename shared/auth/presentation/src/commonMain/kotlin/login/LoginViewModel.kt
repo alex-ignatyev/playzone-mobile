@@ -2,9 +2,12 @@ package login
 
 import AuthRepository
 import com.adeo.kviewmodel.BaseSharedViewModel
+import com.realcosmetology.android.utils.api.core.onFailure
+import com.realcosmetology.android.utils.api.core.onSuccess
 import di.Inject
 import kotlinx.coroutines.launch
 
+//FIXME Валидация
 class LoginViewModel : BaseSharedViewModel<LoginState, LoginAction, LoginEvent>(
     initialState = LoginState()
 ) {
@@ -12,20 +15,23 @@ class LoginViewModel : BaseSharedViewModel<LoginState, LoginAction, LoginEvent>(
 
     override fun obtainEvent(viewEvent: LoginEvent) {
         when (viewEvent) {
-            is LoginEvent.LoginClick -> sendLogin()
-            is LoginEvent.EmailChanged -> obtainEmailChanged(viewEvent.value)
-            is LoginEvent.PasswordChanged -> obtainPasswordChanged(viewEvent.value)
-            is LoginEvent.PasswordShowClick -> changePasswordVisibility()
+            is LoginEvent.LoginClick -> logIn()
             is LoginEvent.ForgotClick -> openForgot()
             is LoginEvent.RegistrationClick -> openRegistration()
+            is LoginEvent.LoginChanged -> obtainEmailChanged(viewEvent.value)
+            is LoginEvent.PasswordChanged -> obtainPasswordChanged(viewEvent.value)
+            is LoginEvent.PasswordShowClick -> changePasswordVisibility()
         }
     }
 
-    private fun sendLogin() {
-        viewState = viewState.copy(isSending = true)
+    private fun logIn() {
         viewModelScope.launch {
-            val a = repo.logIn("test", "123456")
-            println(a)
+            viewState = viewState.copy(isLoading = true)
+            repo.logIn(viewState.login, viewState.password).onSuccess {
+                viewAction = LoginAction.OpenMainFlow
+            }.onFailure {
+                viewState = viewState.copy(login = "", password = "", isLoading = false)
+            }
         }
     }
 
@@ -34,11 +40,11 @@ class LoginViewModel : BaseSharedViewModel<LoginState, LoginAction, LoginEvent>(
     }
 
     private fun openRegistration() {
-        viewAction = LoginAction.OpenForgotScreen
+        viewAction = LoginAction.OpenRegistrationScreen
     }
 
     private fun obtainEmailChanged(value: String) {
-        viewState = viewState.copy(email = value)
+        viewState = viewState.copy(login = value)
     }
 
     private fun obtainPasswordChanged(value: String) {

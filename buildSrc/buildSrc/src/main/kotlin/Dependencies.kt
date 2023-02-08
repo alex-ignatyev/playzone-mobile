@@ -19,7 +19,7 @@ object Dependencies {
     }
 
     object Kodein {
-        const val core = "org.kodein.di:kodein-di:7.1.0"
+        const val core = "org.kodein.di:kodein-di:7.18.0"
     }
 
     object Koin {

@@ -1,16 +1,17 @@
-package login
+package ui.login
 
 import Theme
-import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.clickable
-//import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -32,6 +33,8 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import login.LoginEvent
+import login.LoginState
 
 @Composable
 fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
@@ -58,8 +61,8 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(56.dp),
-            value = state.email,
-            enabled = !state.isSending,
+            value = state.login,
+            enabled = !state.isLoading,
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = Theme.colors.backgroundTextField,
                 textColor = Theme.colors.hintTextColor,
@@ -70,7 +73,7 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
             placeholder = { Text("Your login", color = Theme.colors.hintTextColor) },
             shape = RoundedCornerShape(10.dp),
             onValueChange = {
-                eventHandler.invoke(LoginEvent.EmailChanged(it))
+                eventHandler.invoke(LoginEvent.LoginChanged(it))
             })
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -80,7 +83,7 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
                 .fillMaxWidth()
                 .height(56.dp),
             value = state.password,
-            enabled = !state.isSending,
+            enabled = !state.isLoading,
             colors = TextFieldDefaults.textFieldColors(
                 backgroundColor = Theme.colors.backgroundTextField,
                 textColor = Theme.colors.hintTextColor,
@@ -139,7 +142,7 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = Theme.colors.primaryAction
             ),
-            enabled = !state.isSending,
+            enabled = !state.isLoading,
             shape = RoundedCornerShape(10.dp),
             onClick = {
                 eventHandler.invoke(LoginEvent.LoginClick)
@@ -147,6 +150,28 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
             Text(
                 "Login Now", color = Theme.colors.primaryTextColor,
                 fontSize = 16.sp, fontWeight = FontWeight.Bold
+            )
+        }
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight()
+                .padding(horizontal = 16.dp),
+            verticalAlignment = Alignment.Bottom,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "Don't have account ?",
+                color = Theme.colors.hintTextColor
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(
+                text = "Create one",
+                color = Theme.colors.highlightTextColor,
+                modifier = Modifier.clickable {
+                    eventHandler.invoke(LoginEvent.RegistrationClick)
+                }
             )
         }
     }

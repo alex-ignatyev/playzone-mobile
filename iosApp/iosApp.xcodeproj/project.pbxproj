@@ -12,6 +12,9 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		E39E9D282297DE018E0BF7DF /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EC7797FDE812084569D3FE /* Pods_iosApp.framework */; };
+		FA6D1D4D2993087C003A1377 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D4C2993087C003A1377 /* LoginView.swift */; };
+		FA6D1D5029930C80003A1377 /* Color + Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D4F29930C80003A1377 /* Color + Customs.swift */; };
+		FA6D1D5329930FE9003A1377 /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D5229930FE9003A1377 /* CommonTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		7DD6BBB6217CFF3870E2A950 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
 		D8EC7797FDE812084569D3FE /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07EC2BA9CB9F951EA7042BD /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FA6D1D4C2993087C003A1377 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FA6D1D4F29930C80003A1377 /* Color + Customs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Customs.swift"; sourceTree = "<group>"; };
+		FA6D1D5229930FE9003A1377 /* CommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,9 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA6D1D5129930FCC003A1377 /* View */,
+				FA6D1D4E29930C5E003A1377 /* Utils */,
+				FA6D1D4B2993084F003A1377 /* Screens */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -90,8 +99,31 @@
 				E07EC2BA9CB9F951EA7042BD /* Pods-iosApp.debug.xcconfig */,
 				7DD6BBB6217CFF3870E2A950 /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA6D1D4B2993084F003A1377 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FA6D1D4C2993087C003A1377 /* LoginView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FA6D1D4E29930C5E003A1377 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FA6D1D4F29930C80003A1377 /* Color + Customs.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FA6D1D5129930FCC003A1377 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA6D1D5229930FE9003A1377 /* CommonTextField.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,7 +222,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6D1D5029930C80003A1377 /* Color + Customs.swift in Sources */,
+				FA6D1D4D2993087C003A1377 /* LoginView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				FA6D1D5329930FE9003A1377 /* CommonTextField.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +362,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-framework",
+					"\"SharedSDK\"",
+					"-lsqlite3",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -346,6 +389,14 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-framework",
+					"\"SharedSDK\"",
+					"-lsqlite3",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

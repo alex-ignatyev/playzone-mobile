@@ -1,11 +1,15 @@
-package login
+package ui.login
 
 import NavigationThree
 import androidx.compose.runtime.Composable
 import com.adeo.kviewmodel.compose.observeAsState
 import com.adeo.kviewmodel.odyssey.StoredViewModel
+import login.LoginAction
+import login.LoginViewModel
+import ru.alexgladkov.odyssey.compose.extensions.present
 import ru.alexgladkov.odyssey.compose.extensions.push
 import ru.alexgladkov.odyssey.compose.local.LocalRootController
+import ru.alexgladkov.odyssey.core.LaunchFlag
 
 @Composable
 fun LoginScreen() {
@@ -21,11 +25,10 @@ fun LoginScreen() {
 
         when (action.value) {
             is LoginAction.OpenMainFlow -> {
-                /*rootController.findRootController()
-                    .present(
-                        screen = NavigationThree.Main.Dashboard.name,
-                        launchFlag = LaunchFlag.SingleNewTask
-                    )*/
+                rootController.present(
+                    screen = NavigationThree.General.Main.name,
+                    launchFlag = LaunchFlag.SingleNewTask
+                )
             }
 
             is LoginAction.OpenRegistrationScreen -> rootController.push(
@@ -36,7 +39,7 @@ fun LoginScreen() {
                 NavigationThree.Auth.Forgot.name
             )
 
-            null -> {}
+            else -> Unit
         }
     }
 }

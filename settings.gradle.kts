@@ -18,6 +18,7 @@ rootProject.name = "test"
 include(":androidApp")
 
 include(":shared:core")
+include(":shared:kodein")
 include(":shared:core-ios")
 include(":shared:core-android")
 include(":shared:theme")

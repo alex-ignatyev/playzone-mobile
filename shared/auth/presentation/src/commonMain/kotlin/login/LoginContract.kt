@@ -1,7 +1,7 @@
 package login
 
 sealed interface LoginEvent {
-    data class EmailChanged(val value: String) : LoginEvent
+    data class LoginChanged(val value: String) : LoginEvent
     data class PasswordChanged(val value: String) : LoginEvent
     object PasswordShowClick : LoginEvent
     object LoginClick : LoginEvent
@@ -10,10 +10,10 @@ sealed interface LoginEvent {
 }
 
 data class LoginState(
-    val email: String = "",
+    val login: String = "",
     val password: String = "",
     val passwordHidden: Boolean = true,
-    val isSending: Boolean = false
+    val isLoading: Boolean = false
 )
 
 sealed interface LoginAction {

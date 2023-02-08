@@ -10,8 +10,8 @@ import org.kodein.di.singleton
 
 val authModule = DI.Module("feature.auth.getAuthModule") {
 
-    bind<RemoteAuthDataSource>() with provider {
-        RemoteAuthDataSource(instance())
+    bind<RemoteAuthDataSourceBase>() with provider {
+        RemoteAuthDataSourceBase(instance())
     }
 
     bind<LocalDataSource>() with provider {

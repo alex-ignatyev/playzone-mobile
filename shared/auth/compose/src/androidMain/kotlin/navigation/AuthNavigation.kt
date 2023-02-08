@@ -1,9 +1,9 @@
 package navigation
 
 import NavigationThree
-import forgot.ForgotScreen
-import login.LoginScreen
-import registration.RegistrationScreen
+import ui.forgot.ForgotScreen
+import ui.login.LoginScreen
+import ui.registration.RegistrationScreen
 import ru.alexgladkov.odyssey.compose.extensions.flow
 import ru.alexgladkov.odyssey.compose.extensions.screen
 import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder

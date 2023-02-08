@@ -37,6 +37,7 @@ android {
 
 dependencies {
     implementation(project(":shared:core"))
+    implementation(project(":shared:kodein"))
     implementation(project(":shared:core-android"))
     implementation(project(":shared:auth:api"))
 
