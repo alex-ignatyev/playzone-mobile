@@ -17,7 +17,7 @@ struct LoginScreen: View {
             ForgotScreen()
         })
         .sheet(isPresented: $isRegistrationPresented, content: {
-            RegistrationScreen()
+            RegistrationScreen().background(Color.primaryBackground)
         })
         .fullScreenCover(isPresented: $isMainPresented, content: {
             MainScreen()

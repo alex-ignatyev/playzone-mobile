@@ -57,7 +57,7 @@ fun RegistrationView(state: RegistrationState, eventHandler: (RegistrationEvent)
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent
             ),
-            placeholder = { Text("Your login", color = Theme.colors.hintTextColor) },
+            placeholder = { Text("Login", color = Theme.colors.hintTextColor) },
             shape = RoundedCornerShape(10.dp),
             onValueChange = {
                 eventHandler.invoke(RegistrationEvent.LoginChanged(it))
@@ -83,7 +83,7 @@ fun RegistrationView(state: RegistrationState, eventHandler: (RegistrationEvent)
             } else {
                 VisualTransformation.None
             },
-            placeholder = { Text("Your password", color = Theme.colors.hintTextColor) },
+            placeholder = { Text("Password", color = Theme.colors.hintTextColor) },
             trailingIcon = {
                 Icon(
                     modifier = Modifier.clickable(

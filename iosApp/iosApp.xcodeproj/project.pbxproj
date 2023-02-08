@@ -19,6 +19,9 @@
 		FA454CC72993F15700CD589F /* ForgotScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA454CC62993F15700CD589F /* ForgotScreen.swift */; };
 		FA454CC92993F21200CD589F /* RegistrationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA454CC82993F21200CD589F /* RegistrationScreen.swift */; };
 		FA454CCB2993F24000CD589F /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA454CCA2993F24000CD589F /* MainScreen.swift */; };
+		FA51D57229942CD10061C752 /* ForgotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51D57129942CD10061C752 /* ForgotView.swift */; };
+		FA51D57429942CDE0061C752 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51D57329942CDE0061C752 /* RegistrationView.swift */; };
+		FA51D57629942CF00061C752 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51D57529942CF00061C752 /* MainView.swift */; };
 		FA6D1D4D2993087C003A1377 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D4C2993087C003A1377 /* LoginView.swift */; };
 		FA6D1D5029930C80003A1377 /* Color + Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D4F29930C80003A1377 /* Color + Customs.swift */; };
 		FA6D1D5329930FE9003A1377 /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D5229930FE9003A1377 /* CommonTextField.swift */; };
@@ -41,6 +44,9 @@
 		FA454CC62993F15700CD589F /* ForgotScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotScreen.swift; sourceTree = "<group>"; };
 		FA454CC82993F21200CD589F /* RegistrationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationScreen.swift; sourceTree = "<group>"; };
 		FA454CCA2993F24000CD589F /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		FA51D57129942CD10061C752 /* ForgotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotView.swift; sourceTree = "<group>"; };
+		FA51D57329942CDE0061C752 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		FA51D57529942CF00061C752 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FA6D1D4C2993087C003A1377 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FA6D1D4F29930C80003A1377 /* Color + Customs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Customs.swift"; sourceTree = "<group>"; };
 		FA6D1D5229930FE9003A1377 /* CommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
@@ -137,8 +143,8 @@
 		FA454CC22993F10E00CD589F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				FA6D1D4C2993087C003A1377 /* LoginView.swift */,
 				FA454CBE2993E12C00CD589F /* LoginScreen.swift */,
+				FA6D1D4C2993087C003A1377 /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				FA454CC62993F15700CD589F /* ForgotScreen.swift */,
+				FA51D57129942CD10061C752 /* ForgotView.swift */,
 			);
 			path = Forgot;
 			sourceTree = "<group>";
@@ -155,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				FA454CC82993F21200CD589F /* RegistrationScreen.swift */,
+				FA51D57329942CDE0061C752 /* RegistrationView.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				FA454CCA2993F24000CD589F /* MainScreen.swift */,
+				FA51D57529942CF00061C752 /* MainView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -294,6 +303,7 @@
 				FA454CCB2993F24000CD589F /* MainScreen.swift in Sources */,
 				FA6D1D5029930C80003A1377 /* Color + Customs.swift in Sources */,
 				FA6D1D4D2993087C003A1377 /* LoginView.swift in Sources */,
+				FA51D57429942CDE0061C752 /* RegistrationView.swift in Sources */,
 				FA454CBF2993E12C00CD589F /* LoginScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				FA454CC72993F15700CD589F /* ForgotScreen.swift in Sources */,
@@ -303,6 +313,8 @@
 				FA6D1D5329930FE9003A1377 /* CommonTextField.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				FA454CB92993CA7700CD589F /* ActionButton.swift in Sources */,
+				FA51D57629942CF00061C752 /* MainView.swift in Sources */,
+				FA51D57229942CD10061C752 /* ForgotView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

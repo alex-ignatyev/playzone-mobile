@@ -1,4 +1,5 @@
 import SwiftUI
+import SharedSDK
 
 struct MainScreen: View {
     
