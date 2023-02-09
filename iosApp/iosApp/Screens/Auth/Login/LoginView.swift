@@ -9,25 +9,21 @@ struct LoginView: View {
     var body: some View {
         VStack {
             VStack {
-                Spacer().frame(height: 36)
                 Text("Login Now")
                     .foregroundColor(.primaryTextColor)
                     .fontWeight(.bold)
                     .font(.system(size: 24))
+                    .padding(.top, 36)
                 
                 Text("Welcome back! Enter your email addres and your password to enjoy the latest features")
                     .foregroundColor(.primaryTextColor.opacity(0.5))
                     .fixedSize(horizontal: false, vertical: true)
                     .multilineTextAlignment(.center)
-                    .padding(EdgeInsets(top: 16, leading: 30, bottom: 0, trailing: 30))
-                
-                Spacer().frame(height: 50)
+                    .padding(EdgeInsets(top: 16, leading: 30, bottom: 50, trailing: 30))
                 
                 CommonTextField(hint: "Login", enabled: !viewState.isLoading) { newValue in
                     eventHandler(LoginEventLoginChanged(value: newValue))
-                }
-                
-                Spacer().frame(height: 24)
+                }.padding(.bottom, 24)
                 
                 CommonTextField(hint: "Password", enabled: !viewState.isLoading, isSecure: !viewState.passwordHidden) {newValue in
                     eventHandler(LoginEventPasswordChanged(value: newValue))
@@ -67,7 +63,6 @@ struct LoginActionView: View {
     
     var body: some View {
         VStack {
-            Spacer().frame(height: 30)
             HStack {
                 Spacer()
                 Text("Forgot Password")
@@ -75,10 +70,7 @@ struct LoginActionView: View {
                     .onTapGesture {
                         onForgotClick()
                     }
-                Spacer().frame(width: 30)
-            }
-            
-            Spacer().frame(height: 30)
+            }.padding(EdgeInsets(top: 30, leading: 0, bottom: 30, trailing: 30))
             
             ActionButton(title: "Login Now", enabled: true) {
                 onLoginClick()

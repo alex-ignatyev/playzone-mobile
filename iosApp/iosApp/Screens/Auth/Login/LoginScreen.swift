@@ -14,7 +14,7 @@ struct LoginScreen: View {
                 viewModel.obtainEvent(viewEvent: event)
             }
         }.sheet(isPresented: $isForgotPresented, content: {
-            ForgotScreen()
+            ForgotScreen().background(Color.primaryBackground)
         })
         .sheet(isPresented: $isRegistrationPresented, content: {
             RegistrationScreen().background(Color.primaryBackground)

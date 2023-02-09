@@ -3,7 +3,7 @@ import SharedSDK
 
 struct ForgotScreen: View {
     
-    @State private var isLoginPresented = false
+    @Environment(\.presentationMode) var presentationMode
     private let viewModel = ForgotViewModel()
     
     var body: some View {
@@ -11,13 +11,10 @@ struct ForgotScreen: View {
             ForgotView(viewState: viewState) { event in
                 viewModel.obtainEvent(viewEvent: event)
             }
-        }.sheet(isPresented: $isLoginPresented, content: {
-            
-        })
-        .onReceive(sharePublisher(viewModel.viewActions())) { action in
+        }.onReceive(sharePublisher(viewModel.viewActions())) { action in
             switch (action) {
             case is ForgotActionOpenLoginScreen:
-                isLoginPresented = true
+                presentationMode.wrappedValue.dismiss()
                 
             default:
                 break

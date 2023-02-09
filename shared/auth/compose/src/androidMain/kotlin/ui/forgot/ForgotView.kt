@@ -66,7 +66,7 @@ fun ForgotView(state: ForgotState, eventHandler: (ForgotEvent) -> Unit) {
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent
             ),
-            placeholder = { Text("Your login", color = Theme.colors.hintTextColor) },
+            placeholder = { Text("Login", color = Theme.colors.hintTextColor) },
             shape = RoundedCornerShape(10.dp),
             onValueChange = {
                 eventHandler.invoke(ForgotEvent.LoginChanged(it))
