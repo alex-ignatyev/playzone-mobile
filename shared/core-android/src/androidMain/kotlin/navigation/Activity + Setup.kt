@@ -1,6 +1,7 @@
 package navigation
 
 import AppTheme
+import NavigationThree
 import Theme
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,7 +13,7 @@ import ru.alexgladkov.odyssey.compose.local.LocalRootController
 import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder
 import ru.alexgladkov.odyssey.compose.navigation.modal_navigation.ModalNavigator
 
-fun ComponentActivity.setupThemedNavigation() {
+fun ComponentActivity.setupThemedNavigation(isAuthorised: Boolean) {
     val rootController = RootComposeBuilder().apply { generateGraph() }.build()
     rootController.setupWithActivity(this)
     rootController.setupWithViewModels()
@@ -24,7 +25,7 @@ fun ComponentActivity.setupThemedNavigation() {
 
             CompositionLocalProvider(LocalRootController provides rootController) {
                 ModalNavigator {
-                    Navigator(startScreen = NavigationThree.Auth.Login.name)
+                    Navigator(startScreen = if (isAuthorised) NavigationThree.General.Main.name else NavigationThree.Auth.Login.name)
                 }
             }
         }

@@ -33,13 +33,17 @@ android {
             isMinifyEnabled = false
         }
     }
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.jvmTarget = "11"
+    }
 }
 
 dependencies {
     implementation(project(":shared:core"))
     implementation(project(":shared:kodein"))
     implementation(project(":shared:core-android"))
-    implementation(project(":shared:auth:api"))
+    implementation(project(":shared:feature:auth:api"))
 
     implementation(Dependencies.Android.Compose.activity)
     implementation(Dependencies.Android.splash)

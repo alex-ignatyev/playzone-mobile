@@ -1,14 +1,12 @@
 plugins {
     id("module-setup")
     id("multiplatform-setup")
-    kotlin("plugin.serialization") //FIXME Проверить нужен ли
 }
 
 kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(Dependencies.Kotlin.Serialization.serialization)
                 api(Dependencies.Kotlin.Coroutines.core)
 
                 api(Dependencies.Kodein.core)
@@ -17,6 +15,9 @@ kotlin {
                 implementation(Dependencies.Ktor.logging)
                 implementation(Dependencies.Ktor.negotiation)
                 implementation(Dependencies.Ktor.serialization)
+
+                implementation(Dependencies.Settings.core)
+                implementation(Dependencies.Settings.noargs)
 
                 api(Dependencies.SqlDelight.core)
             }

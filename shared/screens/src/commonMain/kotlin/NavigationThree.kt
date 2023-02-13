@@ -5,6 +5,6 @@ object NavigationThree {
     }
 
     enum class General {
-        Main
+        Main, Home, Profile
     }
 }

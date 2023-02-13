@@ -19,8 +19,8 @@ kotlin {
             export(project(":shared:core"))
             export(project(":shared:kodein"))
             export(project(":shared:screens"))
-            export(project(":shared:auth:api"))
-            export(project(":shared:auth:presentation"))
+            export(project(":shared:feature:auth:api"))
+            export(project(":shared:feature:auth:presentation"))
         }
     }
 
@@ -30,8 +30,8 @@ kotlin {
                 implementation(project(":shared:core"))
                 implementation(project(":shared:kodein"))
                 implementation(project(":shared:screens"))
-                implementation(project(":shared:auth:api"))
-                implementation(project(":shared:auth:presentation"))
+                implementation(project(":shared:feature:auth:api"))
+                implementation(project(":shared:feature:auth:presentation"))
             }
         }
 
@@ -40,8 +40,8 @@ kotlin {
                 api(project(":shared:core"))
                 api(project(":shared:kodein"))
                 api(project(":shared:screens"))
-                api(project(":shared:auth:api"))
-                api(project(":shared:auth:presentation"))
+                api(project(":shared:feature:auth:api"))
+                api(project(":shared:feature:auth:presentation"))
             }
         }
     }
