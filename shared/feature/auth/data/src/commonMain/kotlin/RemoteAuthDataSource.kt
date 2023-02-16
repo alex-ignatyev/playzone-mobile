@@ -1,9 +1,5 @@
-package feature.auth
-
-import api.core.Answer
-import feature.BaseRemoteDataSource
-import api.model.LoginRequest
-import api.model.TokenResponse
+import model.LoginRequest
+import model.TokenResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.request.header
@@ -13,12 +9,10 @@ import io.ktor.client.request.url
 import io.ktor.http.HttpHeaders
 import settings.AuthSettings
 
-class RemoteAuthDataSourceBase(
+class RemoteAuthDataSource(
     private val httpClient: HttpClient,
     private val settings: AuthSettings
 ) : BaseRemoteDataSource() {
-
-    // "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ1c2VycyIsImlzcyI6Imh0dHA6Ly8wLjAuMC4wOjgwODAiLCJleHAiOjE3MDc4Mzc4NjAsInVzZXJJZCI6IjYzZWE0MTMyN2ZmMjAyNzdlZmNlNmZkMyJ9.0DtU7Q3IkJl7SS_yUMkOcWfiLsNM06s7AcZt69YfCLM"
 
     suspend fun authenticate(): Answer<Unit> {
         return apiCall {

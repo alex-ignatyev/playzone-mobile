@@ -7,8 +7,8 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(project(":shared:core"))
-                api(project(":shared:feature:auth:api"))
+                implementation(project(":shared:core"))
+                implementation(project(":shared:feature:auth:api"))
                 implementation(Dependencies.AlexGladkov.ViewModel.core)
             }
         }

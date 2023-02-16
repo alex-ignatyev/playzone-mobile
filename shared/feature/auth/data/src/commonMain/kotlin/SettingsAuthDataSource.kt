@@ -1,5 +1,3 @@
-package feature.auth
-
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.get
 import settings.AuthSettings

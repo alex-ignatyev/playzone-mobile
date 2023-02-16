@@ -1,15 +1,8 @@
-package feature.auth
-
-import AuthRepository
-import api.core.Answer
-import api.core.onSuccess
-import api.model.TokenResponse
-import bd.LocalDataSource
+import model.TokenResponse
 import settings.AuthSettings
 
 class AuthRepositoryImpl(
-    private val remote: RemoteAuthDataSourceBase,
-    private val local: LocalDataSource,
+    private val remote: RemoteAuthDataSource,
     private val settings: AuthSettings
 ) : AuthRepository {
 

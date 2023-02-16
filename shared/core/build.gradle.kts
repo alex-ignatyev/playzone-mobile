@@ -16,8 +16,8 @@ kotlin {
                 implementation(Dependencies.Ktor.negotiation)
                 implementation(Dependencies.Ktor.serialization)
 
-                implementation(Dependencies.Settings.core)
-                implementation(Dependencies.Settings.noargs)
+                api(Dependencies.Settings.core)
+                api(Dependencies.Settings.noargs)
 
                 api(Dependencies.SqlDelight.core)
             }

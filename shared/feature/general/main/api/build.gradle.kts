@@ -8,7 +8,9 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                api(Dependencies.Kotlin.Serialization.serialization)
+                api(project(":shared:answer"))
+
+                implementation(Dependencies.Kotlin.Serialization.serialization)
             }
         }
     }

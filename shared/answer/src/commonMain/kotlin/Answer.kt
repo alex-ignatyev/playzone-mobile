@@ -1,6 +1,4 @@
-package api.core
-
-import api.core.Answer.Failure
+import Answer.Failure
 
 @Suppress("unchecked_cast")
 class Answer<out T>(val value: Any?) {

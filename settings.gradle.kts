@@ -21,6 +21,7 @@ include(":shared:core")
 include(":shared:kodein")
 include(":shared:core-ios")
 include(":shared:core-android")
+include(":shared:answer")
 include(":shared:theme")
 include(":shared:screens")
 

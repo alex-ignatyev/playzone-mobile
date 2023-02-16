@@ -2,10 +2,10 @@ package registration
 
 import AuthRepository
 import com.adeo.kviewmodel.BaseSharedViewModel
-import api.core.onFailure
-import api.core.onSuccess
 import di.Inject
 import kotlinx.coroutines.launch
+import onFailure
+import onSuccess
 
 //FIXME Валидация
 class RegistrationViewModel : BaseSharedViewModel<RegistrationState, RegistrationAction, RegistrationEvent>(

@@ -1,5 +1,4 @@
-import api.core.Answer
-import api.model.TokenResponse
+import model.TokenResponse
 
 interface AuthRepository {
     suspend fun authenticate(): Answer<Unit>

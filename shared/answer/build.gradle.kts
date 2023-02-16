@@ -7,8 +7,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":shared:feature:general:main:api"))
-                implementation(project(":shared:core"))
+                implementation(Dependencies.Ktor.core)
             }
         }
     }
