@@ -7,6 +7,8 @@ sealed interface LoginEvent {
     object LoginClick : LoginEvent
     object RegistrationClick : LoginEvent
     object ForgotClick : LoginEvent
+
+    object TestLoginClick : LoginEvent
 }
 
 data class LoginState(

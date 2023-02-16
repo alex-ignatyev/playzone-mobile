@@ -5,7 +5,7 @@ import SharedSDK
 struct iOSApp: App {
     
     init() {
-        AndroidPlatformSDK().doInit(configuration: PlatformConfiguration())
+        PlatformSDK().doInit(configuration: PlatformConfiguration())
     }
     
 	var body: some Scene {

@@ -1,5 +1,6 @@
 package ui.login
 
+import AppTheme
 import Theme
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -31,6 +32,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import login.LoginEvent
@@ -44,7 +46,10 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
     ) {
         Text(
             text = "Login Now", color = Theme.colors.thirdTextColor,
-            fontSize = 24.sp, fontWeight = FontWeight.Bold
+            fontSize = 24.sp, fontWeight = FontWeight.Bold,
+            modifier = Modifier.clickable {
+                eventHandler.invoke(LoginEvent.TestLoginClick)
+            }
         )
 
         Text(
@@ -175,5 +180,13 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
                 }
             )
         }
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFF050B18)
+@Composable
+fun Preview_LoginView() {
+    AppTheme {
+        LoginView(LoginState()) {}
     }
 }

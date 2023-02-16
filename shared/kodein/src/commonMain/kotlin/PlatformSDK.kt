@@ -5,13 +5,13 @@ import org.kodein.di.direct
 import org.kodein.di.singleton
 import platform.PlatformConfiguration
 
-object AndroidPlatformSDK {
+object PlatformSDK {
 
     fun init(
         configuration: PlatformConfiguration
     ) {
         val platformModule = DI.Module(
-            name = "androidPlatformModule",
+            name = "platformModule",
             init = {
                 bind<PlatformConfiguration>() with singleton { configuration }
             }

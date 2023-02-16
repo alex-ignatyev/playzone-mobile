@@ -7,13 +7,8 @@ kotlin {
     sourceSets {
         androidMain {
             dependencies {
-                implementation(project(":shared:core"))
                 implementation(project(":shared:screens"))
                 implementation(project(":shared:theme"))
-
-                // Модули собираются в DI дерево - AndroidPlatformSDK
-                implementation(project(":shared:feature:auth:data"))
-                implementation(project(":shared:feature:general:main:data"))
 
                 // Модули собирается в NavGraph дерево - generateGraph()
                 implementation(project(":shared:feature:auth:compose"))

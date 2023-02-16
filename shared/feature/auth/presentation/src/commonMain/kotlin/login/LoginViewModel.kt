@@ -21,6 +21,7 @@ class LoginViewModel : BaseSharedViewModel<LoginState, LoginAction, LoginEvent>(
             is LoginEvent.LoginChanged -> obtainEmailChanged(viewEvent.value)
             is LoginEvent.PasswordChanged -> obtainPasswordChanged(viewEvent.value)
             is LoginEvent.PasswordShowClick -> changePasswordVisibility()
+            is LoginEvent.TestLoginClick -> viewAction = LoginAction.OpenMainFlow
         }
     }
 

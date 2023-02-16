@@ -8,8 +8,6 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":shared:core"))
-                implementation(project(":shared:screens"))
-
                 implementation(project(":shared:feature:auth:data"))
 
                 implementation(Dependencies.Kodein.core)

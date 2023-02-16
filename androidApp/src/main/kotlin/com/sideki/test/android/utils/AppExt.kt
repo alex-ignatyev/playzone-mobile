@@ -1,10 +1,10 @@
 package com.sideki.test.android.utils
 
-import AndroidPlatformSDK
+import PlatformSDK
 import com.sideki.test.android.App
 import platform.PlatformConfiguration
 
 fun App.initPlatformSDK() =
-    AndroidPlatformSDK.init(
+    PlatformSDK.init(
         configuration = PlatformConfiguration(androidContext = applicationContext)
     )
