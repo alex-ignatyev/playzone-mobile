@@ -20,7 +20,7 @@ fun NavController.appCurrentDestinationAsState(): State<Route?> {
 private val NavController.appCurrentDestinationFlow: Flow<Route>
     get() = currentBackStackEntryFlow.map { it.destination() }
 
-fun showBottomNavBar(route: Route?): Boolean {
+fun showBar(route: Route?): Boolean {
     return when (route) {
         null, LoginScreenDestination, RegistrationScreenDestination, ForgotScreenDestination -> false
         else -> true

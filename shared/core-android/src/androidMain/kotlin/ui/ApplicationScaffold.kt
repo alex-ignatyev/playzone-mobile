@@ -13,7 +13,6 @@ import com.google.accompanist.navigation.material.ModalBottomSheetLayout
 import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.ramcosta.composedestinations.spec.Route
 import util.appCurrentDestinationAsState
-import util.showBottomNavBar
 
 @OptIn(ExperimentalMaterialNavigationApi::class)
 @Composable
@@ -36,7 +35,7 @@ fun ApplicationScaffold(
     ) {
         Scaffold(
             topBar = topBar,
-            bottomBar = { if (showBottomNavBar(destination)) bottomBar(destination) },
+            bottomBar = { bottomBar(destination) },
             backgroundColor = Theme.colors.primaryBackground,
             content = content
         )

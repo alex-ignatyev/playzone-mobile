@@ -14,10 +14,11 @@ import navigation.FeatureNavigatorImpl
 import navigation.RootGraph
 import ui.ApplicationScaffold
 import ui.bottom_bar.BottomNavBar
+import util.appCurrentDestinationAsState
+import util.showBar
 
 //TODO Добавить боттом нав и тулбалы как в репе
 //TODO уЛчше разобраться в настройке боттом бара
-//TODO Вынести профиль в модуль
 //TODO Добавить экранов на главный граф
 //TODO добавить тулбар как в репе
 //TODO Добавить логаут как в репе по протухшему токену
@@ -25,6 +26,7 @@ import ui.bottom_bar.BottomNavBar
 //TODO Добавить диалоги
 //TODO Почитать еще про либу нава
 //TODO Поднять котлин до 1/8 и внести все правки
+//TODO убрать все манифесты
 
 fun ComponentActivity.setupThemedNavigation(isAuthorised: Boolean) {
     setContent {
@@ -39,12 +41,13 @@ fun ComponentActivity.setupThemedNavigation(isAuthorised: Boolean) {
 fun App(isAuthorised: Boolean) {
     val engine = rememberAnimatedNavHostEngine()
     val navController = engine.rememberNavController()
-    val startRoute = if (!isAuthorised) AuthNavGraph else MainNavGraph
+    val startRoute = if (!isAuthorised) AuthNavGraph else HomeNavGraph
+    val destination = navController.appCurrentDestinationAsState().value
 
     ApplicationScaffold(
         startRoute = startRoute,
         navController = navController,
-        bottomBar = { BottomNavBar(navController) }
+        bottomBar = { if (showBar(destination)) BottomNavBar(navController) }
     ) {
         DestinationsNavHost(
             engine = engine,

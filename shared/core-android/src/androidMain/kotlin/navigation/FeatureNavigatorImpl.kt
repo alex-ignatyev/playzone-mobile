@@ -1,7 +1,7 @@
 package navigation
 
 import FeatureNavigator
-import MainNavGraph
+import HomeNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.sideki.test.shared.feature.auth.compose.destinations.LoginScreenDestination
 
@@ -10,7 +10,7 @@ class FeatureNavigatorImpl(
 ) : FeatureNavigator {
 
     override fun toMain() {
-        navigator.navigate(MainNavGraph) {
+        navigator.navigate(HomeNavGraph) {
             launchSingleTop = true
             popUpTo(LoginScreenDestination.route) {
                 inclusive = true

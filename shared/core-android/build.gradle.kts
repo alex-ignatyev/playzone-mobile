@@ -12,7 +12,8 @@ kotlin {
                 implementation(project(":shared:core-android-navigator"))
 
                 implementation(project(":shared:feature:auth:compose"))
-                implementation(project(":shared:feature:general:main:compose"))
+                implementation(project(":shared:feature:general:home:compose"))
+                implementation(project(":shared:feature:general:profile:compose"))
 
                 implementation(Dependencies.Android.Navigation.core)
                 configurations["ksp"].dependencies.add(project.dependencies.create(Dependencies.Android.Navigation.ksp))

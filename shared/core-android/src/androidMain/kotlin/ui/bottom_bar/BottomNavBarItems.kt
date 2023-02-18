@@ -1,6 +1,7 @@
 package ui.bottom_bar
 
-import MainNavGraph
+import HomeNavGraph
+import ProfileNavGraph
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
@@ -9,7 +10,6 @@ import androidx.compose.material.icons.outlined.Person
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.ramcosta.composedestinations.spec.Direction
 import com.ramcosta.composedestinations.spec.Route
-import com.sideki.test.shared.feature.general.main.compose.destinations.ProfileScreenDestination
 
 val bottomNavItems = listOf(Home, Profile)
 
@@ -24,19 +24,19 @@ object Home : BottomNavItem(
     title = "Home",
     icon = Icons.Outlined.Home,
     iconSelected = Icons.Default.Home,
-    route = MainNavGraph
+    route = HomeNavGraph
 )
 
 object Profile : BottomNavItem(
     title = "Profile",
     icon = Icons.Outlined.Person,
     iconSelected = Icons.Default.Person,
-    route = ProfileScreenDestination
+    route = ProfileNavGraph
 )
 
 fun BottomNavItem.direction(): Direction =
     when (this) {
-        is Home -> MainNavGraph
-        is Profile -> ProfileScreenDestination
+        is Home -> HomeNavGraph
+        is Profile -> ProfileNavGraph
         else -> throw IllegalStateException("Unknown direction")
     }
