@@ -9,7 +9,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":shared:theme"))
-                implementation(project(":shared:screens"))
+                implementation(project(":shared:core-android-navigator"))
                 implementation(project(":shared:feature:auth:presentation"))
 
                 implementation(Dependencies.AlexGladkov.ViewModel.core)

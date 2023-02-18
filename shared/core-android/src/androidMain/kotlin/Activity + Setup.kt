@@ -1,9 +1,3 @@
-package navigation
-
-import AppTheme
-import AuthNavGraph
-import FeatureNavigator
-import MainNavGraph
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -16,11 +10,13 @@ import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
 import com.ramcosta.composedestinations.navigation.DependenciesContainerBuilder
 import com.ramcosta.composedestinations.navigation.dependency
 import com.sideki.test.shared.feature.auth.compose.destinations.LoginScreenDestination
-import navigation.tabs.BottomBar
+import navigation.FeatureNavigatorImpl
+import navigation.RootGraph
+import ui.ApplicationScaffold
+import ui.bottom_bar.BottomNavBar
 
 //TODO Добавить боттом нав и тулбалы как в репе
 //TODO уЛчше разобраться в настройке боттом бара
-//TODO Отрефачить кор-андроид
 //TODO Вынести профиль в модуль
 //TODO Добавить экранов на главный граф
 //TODO добавить тулбар как в репе
@@ -48,7 +44,7 @@ fun App(isAuthorised: Boolean) {
     ApplicationScaffold(
         startRoute = startRoute,
         navController = navController,
-        bottomBar = { BottomBar(navController) }
+        bottomBar = { BottomNavBar(navController) }
     ) {
         DestinationsNavHost(
             engine = engine,
@@ -63,6 +59,7 @@ fun App(isAuthorised: Boolean) {
     }
 }
 
+// Возможно стоит упростить
 private fun DependenciesContainerBuilder<*>.addDependencies(
     featuresNavigator: FeatureNavigator
 ) {

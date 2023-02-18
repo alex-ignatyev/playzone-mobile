@@ -6,9 +6,8 @@ import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import di.Inject
 import kotlin.random.Random
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import navigation.setupThemedNavigation
+import setupThemedNavigation
 
 class MainActivity : ComponentActivity() {
 

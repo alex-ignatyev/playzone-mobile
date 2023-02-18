@@ -1,0 +1,3 @@
+interface FeatureNavigator {
+    fun toMain()
+}

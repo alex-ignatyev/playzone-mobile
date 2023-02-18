@@ -25,6 +25,8 @@
 		FA6D1D4D2993087C003A1377 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D4C2993087C003A1377 /* LoginView.swift */; };
 		FA6D1D5029930C80003A1377 /* Color + Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D4F29930C80003A1377 /* Color + Customs.swift */; };
 		FA6D1D5329930FE9003A1377 /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D1D5229930FE9003A1377 /* CommonTextField.swift */; };
+		FAC7EE5129A0D25200626AAE /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC7EE5029A0D25200626AAE /* HomeScreen.swift */; };
+		FAC7EE5929A0D31700626AAE /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC7EE5829A0D31700626AAE /* ProfileScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		FA6D1D4C2993087C003A1377 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		FA6D1D4F29930C80003A1377 /* Color + Customs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Customs.swift"; sourceTree = "<group>"; };
 		FA6D1D5229930FE9003A1377 /* CommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
+		FAC7EE5029A0D25200626AAE /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		FAC7EE5829A0D31700626AAE /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				FA454CC52993F12700CD589F /* Main */,
+				FAC7EE5029A0D25200626AAE /* HomeScreen.swift */,
+				FAC7EE5829A0D31700626AAE /* ProfileScreen.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -304,7 +310,9 @@
 				FA6D1D5029930C80003A1377 /* Color + Customs.swift in Sources */,
 				FA6D1D4D2993087C003A1377 /* LoginView.swift in Sources */,
 				FA51D57429942CDE0061C752 /* RegistrationView.swift in Sources */,
+				FAC7EE5129A0D25200626AAE /* HomeScreen.swift in Sources */,
 				FA454CBF2993E12C00CD589F /* LoginScreen.swift in Sources */,
+				FAC7EE5929A0D31700626AAE /* ProfileScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				FA454CC72993F15700CD589F /* ForgotScreen.swift in Sources */,
 				FA454CBD2993D15900CD589F /* ViewModel + View.swift in Sources */,

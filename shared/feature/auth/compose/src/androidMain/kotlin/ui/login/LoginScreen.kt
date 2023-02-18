@@ -26,7 +26,7 @@ fun LoginScreen(
         }
 
         when (action.value) {
-            is LoginAction.OpenMainFlow -> featureNavigator.goToMain()
+            is LoginAction.OpenMainFlow -> featureNavigator.toMain()
             is LoginAction.OpenRegistrationScreen -> navigator.navigate(RegistrationScreenDestination)
             is LoginAction.OpenForgotScreen -> navigator.navigate(ForgotScreenDestination)
             else -> Unit

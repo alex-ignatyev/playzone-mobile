@@ -9,7 +9,7 @@ class FeatureNavigatorImpl(
     private val navigator: DestinationsNavigator
 ) : FeatureNavigator {
 
-    override fun goToMain() {
+    override fun toMain() {
         navigator.navigate(MainNavGraph) {
             launchSingleTop = true
             popUpTo(LoginScreenDestination.route) {

@@ -18,7 +18,6 @@ kotlin {
             baseName = "SharedSDK"
             export(project(":shared:core"))
             export(project(":shared:kodein"))
-            export(project(":shared:screens"))
             export(project(":shared:feature:auth:api"))
             export(project(":shared:feature:auth:presentation"))
         }
@@ -29,7 +28,6 @@ kotlin {
             dependencies {
                 implementation(project(":shared:core"))
                 implementation(project(":shared:kodein"))
-                implementation(project(":shared:screens"))
                 implementation(project(":shared:feature:auth:api"))
                 implementation(project(":shared:feature:auth:presentation"))
             }
@@ -39,7 +37,6 @@ kotlin {
             dependencies {
                 api(project(":shared:core"))
                 api(project(":shared:kodein"))
-                api(project(":shared:screens"))
                 api(project(":shared:feature:auth:api"))
                 api(project(":shared:feature:auth:presentation"))
             }

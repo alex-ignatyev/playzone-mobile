@@ -1,4 +1,4 @@
-package navigation.tabs
+package ui.bottom_bar
 
 import MainNavGraph
 import androidx.compose.material.icons.Icons
@@ -7,8 +7,8 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.ramcosta.composedestinations.spec.Direction
 import com.ramcosta.composedestinations.spec.Route
-import com.sideki.test.shared.feature.general.main.compose.destinations.MainScreenDestination
 import com.sideki.test.shared.feature.general.main.compose.destinations.ProfileScreenDestination
 
 val bottomNavItems = listOf(Home, Profile)
@@ -33,3 +33,10 @@ object Profile : BottomNavItem(
     iconSelected = Icons.Default.Person,
     route = ProfileScreenDestination
 )
+
+fun BottomNavItem.direction(): Direction =
+    when (this) {
+        is Home -> MainNavGraph
+        is Profile -> ProfileScreenDestination
+        else -> throw IllegalStateException("Unknown direction")
+    }

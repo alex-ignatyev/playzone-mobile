@@ -14,6 +14,9 @@ struct LoginView: View {
                     .fontWeight(.bold)
                     .font(.system(size: 24))
                     .padding(.top, 36)
+                    .onTapGesture {
+                        eventHandler(LoginEventTestLoginClick())
+                    }
                 
                 Text("Welcome back! Enter your email addres and your password to enjoy the latest features")
                     .foregroundColor(.primaryTextColor.opacity(0.5))

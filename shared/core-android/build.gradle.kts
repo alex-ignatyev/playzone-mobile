@@ -8,8 +8,8 @@ kotlin {
     sourceSets {
         androidMain {
             dependencies {
-                implementation(project(":shared:screens"))
                 implementation(project(":shared:theme"))
+                implementation(project(":shared:core-android-navigator"))
 
                 implementation(project(":shared:feature:auth:compose"))
                 implementation(project(":shared:feature:general:main:compose"))
