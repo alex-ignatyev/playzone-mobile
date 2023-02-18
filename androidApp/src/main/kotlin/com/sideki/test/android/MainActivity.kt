@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import di.Inject
+import kotlin.random.Random
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import navigation.setupThemedNavigation
 
@@ -20,7 +22,7 @@ class MainActivity : ComponentActivity() {
 
     private fun checkToken(): Boolean {
         return runBlocking {
-            setupThemedNavigation(repo.authenticate().isSuccess)
+            setupThemedNavigation(Random.nextBoolean()) //repo.authenticate().isSuccess
             false
         }
     }

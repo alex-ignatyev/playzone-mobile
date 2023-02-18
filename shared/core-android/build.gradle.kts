@@ -1,6 +1,7 @@
 plugins {
     id("module-setup")
     id("android-setup")
+    id("com.google.devtools.ksp") version "1.7.20-1.0.8" // Версия зависит от Kotlin https://github.com/google/ksp/releases // Нужен для Compose-Destinations
 }
 
 kotlin {
@@ -10,19 +11,14 @@ kotlin {
                 implementation(project(":shared:screens"))
                 implementation(project(":shared:theme"))
 
-                // Модули собирается в NavGraph дерево - generateGraph()
                 implementation(project(":shared:feature:auth:compose"))
                 implementation(project(":shared:feature:general:main:compose"))
 
+                implementation(Dependencies.Android.Navigation.core)
+                configurations["ksp"].dependencies.add(project.dependencies.create(Dependencies.Android.Navigation.ksp))
+
                 // Для экстеншена ComponentActivity.setupThemedNavigation()
                 implementation(Dependencies.Android.Compose.activity)
-
-                // В модуле описывается граф навигации в приложении c испольованием библиотеки Odyssey
-                implementation(Dependencies.AlexGladkov.Navigation.compose)
-                implementation(Dependencies.AlexGladkov.Navigation.core)
-
-                // Экстеншн setupWithViewModels() для интеграции Odyssey + KViewModel
-                implementation(Dependencies.AlexGladkov.ViewModel.odyssey)
             }
         }
     }

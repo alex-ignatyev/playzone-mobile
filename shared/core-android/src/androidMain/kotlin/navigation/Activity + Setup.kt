@@ -1,33 +1,72 @@
 package navigation
 
 import AppTheme
-import NavigationThree
-import Theme
+import AuthNavGraph
+import FeatureNavigator
+import MainNavGraph
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.CompositionLocalProvider
-import com.adeo.kviewmodel.odyssey.setupWithViewModels
-import ru.alexgladkov.odyssey.compose.base.Navigator
-import ru.alexgladkov.odyssey.compose.extensions.setupWithActivity
-import ru.alexgladkov.odyssey.compose.local.LocalRootController
-import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder
-import ru.alexgladkov.odyssey.compose.navigation.modal_navigation.ModalNavigator
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
+import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
+import com.ramcosta.composedestinations.navigation.DependenciesContainerBuilder
+import com.ramcosta.composedestinations.navigation.dependency
+import com.sideki.test.shared.feature.auth.compose.destinations.LoginScreenDestination
+import navigation.tabs.BottomBar
+
+//TODO Добавить боттом нав и тулбалы как в репе
+//TODO уЛчше разобраться в настройке боттом бара
+//TODO Отрефачить кор-андроид
+//TODO Вынести профиль в модуль
+//TODO Добавить экранов на главный граф
+//TODO добавить тулбар как в репе
+//TODO Добавить логаут как в репе по протухшему токену
+//TODO боттом шиты
+//TODO Добавить диалоги
+//TODO Почитать еще про либу нава
+//TODO Поднять котлин до 1/8 и внести все правки
 
 fun ComponentActivity.setupThemedNavigation(isAuthorised: Boolean) {
-    val rootController = RootComposeBuilder().apply { generateGraph() }.build()
-    rootController.setupWithActivity(this)
-    rootController.setupWithViewModels()
-
     setContent {
         AppTheme {
-            val backgroundColor = Theme.colors.primaryBackground
-            rootController.backgroundColor = backgroundColor
-
-            CompositionLocalProvider(LocalRootController provides rootController) {
-                ModalNavigator {
-                    Navigator(startScreen = if (isAuthorised) NavigationThree.General.Main.name else NavigationThree.Auth.Login.name)
-                }
-            }
+            App(isAuthorised)
         }
+    }
+}
+
+@OptIn(ExperimentalAnimationApi::class, ExperimentalMaterialNavigationApi::class)
+@Composable
+fun App(isAuthorised: Boolean) {
+    val engine = rememberAnimatedNavHostEngine()
+    val navController = engine.rememberNavController()
+    val startRoute = if (!isAuthorised) AuthNavGraph else MainNavGraph
+
+    ApplicationScaffold(
+        startRoute = startRoute,
+        navController = navController,
+        bottomBar = { BottomBar(navController) }
+    ) {
+        DestinationsNavHost(
+            engine = engine,
+            navController = navController,
+            navGraph = RootGraph,
+            startRoute = AuthNavGraph,
+            dependenciesContainerBuilder = {
+                addDependencies(FeatureNavigatorImpl(destinationsNavigator))
+            },
+            modifier = Modifier.padding(it),
+        )
+    }
+}
+
+private fun DependenciesContainerBuilder<*>.addDependencies(
+    featuresNavigator: FeatureNavigator
+) {
+    when (destination) {
+        LoginScreenDestination -> dependency(featuresNavigator)
     }
 }

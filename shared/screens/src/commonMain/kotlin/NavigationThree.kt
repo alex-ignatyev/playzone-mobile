@@ -8,3 +8,7 @@ object NavigationThree {
         Main, Home, Profile
     }
 }
+
+interface FeatureNavigator {
+    fun goToMain()
+}

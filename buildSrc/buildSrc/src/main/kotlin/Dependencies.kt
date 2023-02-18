@@ -78,6 +78,12 @@ object Dependencies {
             const val icons = "androidx.compose.material:material-icons-extended:$version"
             const val activity = "androidx.activity:activity-compose:1.5.1"
         }
+
+        object Navigation {
+            private const val version = "1.7.33-beta"
+            const val core = "io.github.raamcosta.compose-destinations:animations-core:$version"
+            const val ksp = "io.github.raamcosta.compose-destinations:ksp:$version"
+        }
     }
 
     object AlexGladkov {
@@ -85,13 +91,6 @@ object Dependencies {
             private const val version = "0.7.1"
             const val core = "com.adeo:kviewmodel:$version"
             const val compose = "com.adeo:kviewmodel-compose:$version"
-            const val odyssey = "com.adeo:kviewmodel-odyssey:$version"
-        }
-
-        object Navigation {
-            private const val version = "1.0.0-beta15"
-            const val core = "io.github.alexgladkov:odyssey-core:$version"
-            const val compose = "io.github.alexgladkov:odyssey-compose:$version"
         }
     }
 }

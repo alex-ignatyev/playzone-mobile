@@ -1,6 +1,7 @@
 plugins {
     id("module-setup")
     id("android-setup")
+    id("com.google.devtools.ksp") version "1.7.20-1.0.8" // Версия зависит от Kotlin https://github.com/google/ksp/releases // Нужен для Compose-Destinations
 }
 
 kotlin {
@@ -13,11 +14,16 @@ kotlin {
 
                 implementation(Dependencies.AlexGladkov.ViewModel.core)
                 implementation(Dependencies.AlexGladkov.ViewModel.compose)
-                implementation(Dependencies.AlexGladkov.ViewModel.odyssey)
 
-                implementation(Dependencies.AlexGladkov.Navigation.core)
-                implementation(Dependencies.AlexGladkov.Navigation.compose)
+                implementation(Dependencies.Android.Navigation.core)
+                configurations["ksp"].dependencies.add(project.dependencies.create(Dependencies.Android.Navigation.ksp))
             }
         }
     }
+}
+
+// Обязательная настройка для многомодульного проекта, иначе будет конфликт сгенерированных NavGraphs // https://composedestinations.rafaelcosta.xyz/codegenconfigs
+ksp {
+    arg("compose-destinations.codeGenPackageName", "com.sideki.test.shared.feature.auth.compose")
+    arg("compose-destinations.generateNavGraphs", "false")
 }

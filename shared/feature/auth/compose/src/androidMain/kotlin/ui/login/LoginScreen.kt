@@ -1,21 +1,23 @@
 package ui.login
 
-import NavigationThree
+import FeatureNavigator
 import androidx.compose.runtime.Composable
+import com.adeo.kviewmodel.compose.ViewModel
 import com.adeo.kviewmodel.compose.observeAsState
-import com.adeo.kviewmodel.odyssey.StoredViewModel
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import com.sideki.test.shared.feature.auth.compose.destinations.ForgotScreenDestination
+import com.sideki.test.shared.feature.auth.compose.destinations.RegistrationScreenDestination
 import login.LoginAction
 import login.LoginViewModel
-import ru.alexgladkov.odyssey.compose.extensions.present
-import ru.alexgladkov.odyssey.compose.extensions.push
-import ru.alexgladkov.odyssey.compose.local.LocalRootController
-import ru.alexgladkov.odyssey.core.LaunchFlag
 
+@Destination(start = true)
 @Composable
-fun LoginScreen() {
-    val rootController = LocalRootController.current
-
-    StoredViewModel(factory = { LoginViewModel() }) { viewModel ->
+fun LoginScreen(
+    navigator: DestinationsNavigator,
+    featureNavigator: FeatureNavigator
+) {
+    ViewModel(factory = { LoginViewModel() }) { viewModel ->
         val state = viewModel.viewStates().observeAsState()
         val action = viewModel.viewActions().observeAsState()
 
@@ -24,21 +26,9 @@ fun LoginScreen() {
         }
 
         when (action.value) {
-            is LoginAction.OpenMainFlow -> {
-                rootController.findRootController().present(
-                    screen = NavigationThree.General.Main.name,
-                    launchFlag = LaunchFlag.SingleNewTask
-                )
-            }
-
-            is LoginAction.OpenRegistrationScreen -> rootController.push(
-                NavigationThree.Auth.Register.name
-            )
-
-            is LoginAction.OpenForgotScreen -> rootController.push(
-                NavigationThree.Auth.Forgot.name
-            )
-
+            is LoginAction.OpenMainFlow -> featureNavigator.goToMain()
+            is LoginAction.OpenRegistrationScreen -> navigator.navigate(RegistrationScreenDestination)
+            is LoginAction.OpenForgotScreen -> navigator.navigate(ForgotScreenDestination)
             else -> Unit
         }
     }

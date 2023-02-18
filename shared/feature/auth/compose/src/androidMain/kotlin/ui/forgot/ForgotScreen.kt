@@ -1,20 +1,16 @@
 package ui.forgot
 
-import NavigationThree
 import androidx.compose.runtime.Composable
+import com.adeo.kviewmodel.compose.ViewModel
 import com.adeo.kviewmodel.compose.observeAsState
-import com.adeo.kviewmodel.odyssey.StoredViewModel
+import com.ramcosta.composedestinations.annotation.Destination
 import forgot.ForgotAction
 import forgot.ForgotViewModel
-import ru.alexgladkov.odyssey.compose.extensions.push
-import ru.alexgladkov.odyssey.compose.local.LocalRootController
-import ru.alexgladkov.odyssey.core.LaunchFlag
 
+@Destination
 @Composable
 fun ForgotScreen() {
-    val rootController = LocalRootController.current
-
-    StoredViewModel(factory = { ForgotViewModel() }) { viewModel ->
+    ViewModel(factory = { ForgotViewModel() }) { viewModel ->
         val state = viewModel.viewStates().observeAsState()
         val action = viewModel.viewActions().observeAsState()
 
@@ -23,10 +19,7 @@ fun ForgotScreen() {
         }
 
         when (action.value) {
-            is ForgotAction.OpenLoginScreen -> rootController.push(
-                screen = NavigationThree.Auth.Login.name,
-                launchFlag = LaunchFlag.SingleNewTask
-            )
+            is ForgotAction.OpenLoginScreen -> {}
             else -> Unit
         }
     }
