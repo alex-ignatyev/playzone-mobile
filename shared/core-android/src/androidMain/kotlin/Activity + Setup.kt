@@ -17,16 +17,13 @@ import ui.bottom_bar.BottomNavBar
 import util.appCurrentDestinationAsState
 import util.showBar
 
-//TODO Добавить боттом нав и тулбалы как в репе
-//TODO уЛчше разобраться в настройке боттом бара
-//TODO Добавить экранов на главный граф
 //TODO добавить тулбар как в репе
-//TODO Добавить логаут как в репе по протухшему токену
-//TODO боттом шиты
-//TODO Добавить диалоги
+//TODO Добавить логаут
+//TODO перенести проверку токена на меин
 //TODO Почитать еще про либу нава
 //TODO Поднять котлин до 1/8 и внести все правки
 //TODO убрать все манифесты
+//TODO бурать тень у боттом нав бара
 
 fun ComponentActivity.setupThemedNavigation(isAuthorised: Boolean) {
     setContent {

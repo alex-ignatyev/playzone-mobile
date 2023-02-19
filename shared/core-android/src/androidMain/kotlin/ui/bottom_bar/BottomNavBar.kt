@@ -42,7 +42,6 @@ fun BottomNavBar(
                         // When we click again on a bottom bar item and it was already selected
                         // we want to pop the back stack until the initial destination of this bottom bar item
                         navController.popBackStack(destination.route.route, false)
-                        return@BottomNavigationItem
                     }
 
                     navController.navigate(destination.direction()) {

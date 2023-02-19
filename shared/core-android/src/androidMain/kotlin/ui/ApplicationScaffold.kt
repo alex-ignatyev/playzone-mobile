@@ -28,10 +28,10 @@ fun ApplicationScaffold(
     val bottomSheetNavigator = rememberBottomSheetNavigator()
     navController.navigatorProvider += bottomSheetNavigator
 
-    // Необходимо для отображения BottomSheet
+    // Необходимо для отображения BottomSheet - возможно стоит заменить на https://proandroiddev.com/bottom-sheet-in-jetpack-compose-d7e106422606
     ModalBottomSheetLayout(
         bottomSheetNavigator = bottomSheetNavigator,
-        sheetShape = RoundedCornerShape(16.dp)
+        sheetShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
     ) {
         Scaffold(
             topBar = topBar,
