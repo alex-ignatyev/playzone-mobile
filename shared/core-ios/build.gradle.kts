@@ -43,3 +43,5 @@ kotlin {
         }
     }
 }
+
+android { namespace = "com.sideki.test.shared.core_ios" }

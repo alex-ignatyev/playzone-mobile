@@ -15,3 +15,5 @@ kotlin {
         }
     }
 }
+
+android { namespace = "com.sideki.test.shared.kodein" }
