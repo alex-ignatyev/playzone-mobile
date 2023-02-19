@@ -22,6 +22,8 @@ kotlin {
     }
 }
 
+android { namespace = "com.sideki.test.shared.feature.general.profile.compose" }
+
 // Обязательная настройка для многомодульного проекта, иначе будет конфликт сгенерированных NavGraphs // https://composedestinations.rafaelcosta.xyz/codegenconfigs
 ksp {
     arg("compose-destinations.codeGenPackageName", "com.sideki.test.shared.feature.general.profile.compose")

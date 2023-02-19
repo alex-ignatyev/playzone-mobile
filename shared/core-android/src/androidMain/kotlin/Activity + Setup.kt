@@ -1,9 +1,12 @@
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
@@ -22,8 +25,6 @@ import util.showBar
 //TODO перенести проверку токена на меин
 //TODO Почитать еще про либу нава
 //TODO Поднять котлин до 1/8 и внести все правки
-//TODO убрать все манифесты
-//TODO бурать тень у боттом нав бара
 
 fun ComponentActivity.setupThemedNavigation(isAuthorised: Boolean) {
     setContent {
@@ -44,7 +45,15 @@ fun App(isAuthorised: Boolean) {
     ApplicationScaffold(
         startRoute = startRoute,
         navController = navController,
-        bottomBar = { if (showBar(destination)) BottomNavBar(navController) }
+        bottomBar = {
+            if (showBar(destination)) {
+                Divider(
+                    Modifier.fillMaxWidth(),
+                    color = Color.Gray.copy(alpha = 0.12f)
+                )
+                BottomNavBar(navController)
+            }
+        }
     ) {
         DestinationsNavHost(
             engine = engine,

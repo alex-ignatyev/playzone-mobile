@@ -1,2 +1,1 @@
-class IosRoot {
-}
+class IosRoot

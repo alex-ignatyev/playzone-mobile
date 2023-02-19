@@ -11,7 +11,7 @@ import com.sideki.test.shared.feature.auth.compose.destinations.RegistrationScre
 import login.LoginAction
 import login.LoginViewModel
 
-@Destination(start = true)
+@Destination
 @Composable
 fun LoginScreen(
     navigator: DestinationsNavigator,

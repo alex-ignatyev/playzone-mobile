@@ -12,13 +12,15 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 
+/** Анимированная иконка для BottomNavigation **/
+
 @Composable
 fun AnimatedBottomNavIcon(
     imageVector: ImageVector,
     color: Color,
     modifier: Modifier = Modifier,
     scale: Float = 1f,
-    animationDuration: Int = 500
+    animationDuration: Int = 500,
 ) {
     val animatedScale: Float by animateFloatAsState(
         targetValue = scale,
@@ -39,6 +41,7 @@ fun AnimatedBottomNavIcon(
         imageVector = imageVector,
         contentDescription = null,
         tint = animatedColor,
-        modifier = modifier.scale(animatedScale)
+        modifier = modifier
+            .scale(animatedScale)
     )
 }

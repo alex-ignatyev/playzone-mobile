@@ -24,15 +24,6 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(project(":shared:core"))
-                implementation(project(":shared:kodein"))
-                implementation(project(":shared:feature:auth:api"))
-                implementation(project(":shared:feature:auth:presentation"))
-            }
-        }
-
         iosMain {
             dependencies {
                 api(project(":shared:core"))
