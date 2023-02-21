@@ -45,8 +45,10 @@ fun LoginView(state: LoginState, eventHandler: (LoginEvent) -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Login Now", color = Theme.colors.thirdTextColor,
-            fontSize = 24.sp, fontWeight = FontWeight.Bold,
+            text = "Login Now",
+            color = Theme.colors.thirdTextColor,
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
             modifier = Modifier.clickable {
                 eventHandler.invoke(LoginEvent.TestLoginClick)
             }

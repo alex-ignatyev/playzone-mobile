@@ -1,27 +1,34 @@
 package ui
 
+import AppTheme
 import Theme
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
-import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.ramcosta.composedestinations.spec.DestinationStyle
-import kotlinx.coroutines.delay
 
 @Destination(style = DestinationStyle.Dialog::class)
 @Composable
@@ -29,51 +36,75 @@ fun AddTaskDialog(
     navigator: DestinationsNavigator
 ) {
     TitleConfirmDialog(
-        type = "task", //use string resources in a real app ofc :)
-        title = "test",
-        onTitleChange = { },
-        onConfirm = {
+        onLogOut = {
+
+        },
+        onCancel = {
             navigator.popBackStack()
         }
     )
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun TitleConfirmDialog(
-    type: String,
-    title: String,
-    onTitleChange: (String) -> Unit = { },
-    onConfirm: () -> Unit,
+    onLogOut: () -> Unit,
+    onCancel: () -> Unit
 ) {
-    val focusRequester = remember { FocusRequester() }
-    val keyboardController = LocalSoftwareKeyboardController.current
     Column(
         modifier = Modifier
+            .height(120.dp)
+            .wrapContentWidth()
             .background(Theme.colors.primaryBackground)
-            .padding(6.dp),
+            .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Absolute.spacedBy(8.dp)
     ) {
-        Text("Add a new $type:")
+        Text(text = "Are you sure ?", color = Theme.colors.secondaryTextColor, fontSize = 20.sp)
 
-        OutlinedTextField(
-            placeholder = { Text("${type.replaceFirstChar { it.uppercase() }} title") },
-            value = title,
-            onValueChange = onTitleChange,
-            modifier = Modifier.focusRequester(focusRequester)
-        )
+        Row {
+            OutlinedButton(
+                modifier = Modifier.wrapContentSize(),
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = Color.Transparent
+                ),
+                border = BorderStroke(2.dp, Theme.colors.hintTextColor),
+                shape = RoundedCornerShape(10.dp),
+                onClick = onCancel
+            ) {
+                Text(
+                    "Cancel",
+                    color = Theme.colors.hintTextColor,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
 
-        Button(
-            onClick = onConfirm
-        ) {
-            Text("Confirm")
+            Spacer(modifier = Modifier.width(16.dp))
+
+            Button(
+                modifier = Modifier.wrapContentSize(),
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = Theme.colors.primaryAction
+                ),
+                shape = RoundedCornerShape(10.dp),
+                onClick = onLogOut
+            ) {
+                Text(
+                    "Log Out",
+                    color = Theme.colors.primaryTextColor,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
-    }
 
-    LaunchedEffect(Unit) {
-        delay(300)
-        keyboardController?.show()
-        focusRequester.requestFocus()
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFF050B18)
+@Composable
+fun Preview_TitleConfirmDialog() {
+    AppTheme {
+        TitleConfirmDialog({}, {})
     }
 }
